@@ -1,12 +1,16 @@
+// app.js
+
 const express = require('express');
 const app = express();
 const port = 3000;
+
 
 // Sample data (replace with your data or connect to a database)
 const books = [
   { id: 1, title: 'Book 1' },
   { id: 2, title: 'Book 2' },
   { id: 3, title: 'Book 3' },
+  { id: 4, title: 'Book 4' }
 ];
 
 // Middleware to parse JSON requests
@@ -14,6 +18,7 @@ app.use(express.json());
 
 // Define routes
 app.get('/api/books', (req, res) => {
+  // You would typically query the database here
   res.json(books);
 });
 
@@ -24,6 +29,7 @@ app.get('/api/books/:id', (req, res) => {
 });
 
 app.post('/api/books', (req, res) => {
+  // You would typically insert data into the database here
   const book = {
     id: books.length + 1,
     title: req.body.title,
